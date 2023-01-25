@@ -1,0 +1,5 @@
+title: datasette.palewi.re
+
+plugins:
+  datasette-big-local:
+    root_dir: /data/

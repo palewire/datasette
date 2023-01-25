@@ -70,6 +70,8 @@ deploy: ## Deploy to fly.io
 	$(call banner,  🚢 Deploying the site 🚢)
 	datasette publish fly --app="datasette-palewi-re" \
 		-m metadata.yml \
+		--create-volume 1 \
+		--create-db biglocalnews \
 		--install https://github.com/simonw/datasette-big-local/archive/refs/heads/main.zip \
 		--install datasette-cluster-map \
 		--install datasette-vega \

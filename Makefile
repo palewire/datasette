@@ -72,7 +72,7 @@ deploy: ## Deploy to fly.io
 		-m metadata.yml \
 		--create-volume 1 \
 		--create-db biglocalnews \
-		--install https://github.com/simonw/datasette-big-local/archive/refs/heads/main.zip \
+		--install https://github.com/palewire/datasette-big-local/archive/refs/heads/main.zip \
 		--install datasette-cluster-map \
 		--install datasette-vega \
 		--install datasette-copyable

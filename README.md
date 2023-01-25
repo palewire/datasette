@@ -7,5 +7,5 @@ pipenv install
 Deploy to fly.io
 
 ```bash
-make deploy
+pipenv run make deploy
 ```

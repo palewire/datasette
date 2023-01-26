@@ -3,3 +3,5 @@ title: datasette.palewi.re
 plugins:
   datasette-big-local:
     root_dir: /data/
+    graphql_url: https://api.biglocalnews.dev/graphql
+    csv_size_limit_mb: 50

@@ -87,9 +87,9 @@ serve: ## Serve a local test site
 deploy: ## Deploy to fly.io
 	$(call banner,  🚢 Deploying the site 🚢)
 	@$(PIPENV) datasette publish fly \
-		./public-records.db
-		--app="datasette-palewi-re" \
+		./public-records.db \
 		-m metadata.yml \
+		--app="datasette-palewi-re" \
 		--install datasette-cluster-map \
 		--install datasette-vega \
 		--install datasette-copyable

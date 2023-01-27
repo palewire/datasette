@@ -92,7 +92,8 @@ deploy: ## Deploy to fly.io
 		--app="datasette-palewi-re" \
 		--install datasette-cluster-map \
 		--install datasette-vega \
-		--install datasette-copyable
+		--install datasette-copyable \
+		--setting base_url https://palewi.re/data/
 
 #
 # Extras

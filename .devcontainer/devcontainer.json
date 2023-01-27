@@ -4,5 +4,5 @@
 	"features": {
 		"ghcr.io/devcontainers-contrib/features/pipenv:2": {}
 	},
-	"postCreateCommand": "pipenv sync --dev"
+	"postCreateCommand": "sh ./.devcontainer/postCreateCommand.sh"
 }

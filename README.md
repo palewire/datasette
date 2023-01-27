@@ -4,6 +4,12 @@ Install the dependencies.
 pipenv install
 ```
 
+Launch a local test server
+
+```bash
+pipenv run datasette
+```
+
 Login to fly.io
 
 ```bash

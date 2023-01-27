@@ -9,6 +9,7 @@ datasette-publish-fly = "*"
 datasette-cluster-map = "*"
 datasette-vega = "*"
 datasette-copyable = "*"
+sqlite-utils = "*"
 
 [dev-packages]
 

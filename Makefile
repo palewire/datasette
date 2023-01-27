@@ -66,9 +66,27 @@ PYTHON := python -W ignore -m
 # Commands
 #
 
+all: public-records.db
+
+public-records.db:
+	@curl -L https://raw.githubusercontent.com/palewire/cedar-rapids-buildings-unsafe-after-derecho-2020/master/output/placards.csv | $(PIPENV) sqlite-utils insert public-records.db cedar-rapids-buildings-unsafe-after-derecho-2020 - --csv
+
+clean:
+	rm public-records.db
+
+install_plugins: ## Install datasette plugins
+	@$(PIPENV) datasette install \
+		datasette-cluster-map \
+		datasette-vega \
+		datasette-copyable
+
+serve: ## Serve a local test site
+	@$(PIPENV) datasette ./public-records.db \
+		-m metadata.yml
+
 deploy: ## Deploy to fly.io
 	$(call banner,  🚢 Deploying the site 🚢)
-	datasette publish fly --app="datasette-palewi-re" \
+	@$(PIPENV) datasette publish fly --app="datasette-palewi-re" \
 		-m metadata.yml \
 		--install datasette-cluster-map \
 		--install datasette-vega \
@@ -83,4 +101,4 @@ help: ## Show this help. Example: make help
 
 
 # Mark all the commands that don't have a target
-.PHONY: help deploy
+.PHONY: help deploy install_plugins serve

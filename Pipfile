@@ -6,6 +6,9 @@ name = "pypi"
 [packages]
 datasette = "*"
 datasette-publish-fly = "*"
+datasette-cluster-map = "*"
+datasette-vega = "*"
+datasette-copyable = "*"
 
 [dev-packages]
 

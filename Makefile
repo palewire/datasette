@@ -70,9 +70,6 @@ deploy: ## Deploy to fly.io
 	$(call banner,  🚢 Deploying the site 🚢)
 	datasette publish fly --app="datasette-palewi-re" \
 		-m metadata.yml \
-		--create-volume 1 \
-		--create-db biglocalnews \
-		--install https://github.com/simonw/datasette-big-local/archive/refs/heads/main.zip \
 		--install datasette-cluster-map \
 		--install datasette-vega \
 		--install datasette-copyable
@@ -81,17 +78,9 @@ deploy: ## Deploy to fly.io
 # Extras
 #
 
-format: ## automatically format Python code with black
-	$(call banner,       🪥 Cleaning code 🪥)
-	@$(PIPENV) black .
-
-
 help: ## Show this help. Example: make help
 	@egrep -h '\s##\s' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
 
 # Mark all the commands that don't have a target
-.PHONY: help \
-        format \
-		deploy \
-        serve
+.PHONY: help deploy

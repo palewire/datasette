@@ -4,6 +4,12 @@ Install the dependencies.
 pipenv install
 ```
 
+Login to fly.io
+
+```bash
+flyctl auth login
+```
+
 Deploy to fly.io
 
 ```bash

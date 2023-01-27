@@ -23,4 +23,4 @@ jobs:
       - run: curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python
       - run: pipenv sync --dev
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: make deploy
+      - run: pipenv run make deploy

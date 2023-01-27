@@ -1,4 +1,6 @@
-A Datasette instance hosted at [palewi.re/docs](https://palewi.re/docs/)
+A Datasette instance hosting public records gathered by [palewi.re](https://palewi.re)
+
+* Site: [palewi.re/docs](https://palewi.re/docs/)
 
 ## Installation
 

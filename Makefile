@@ -106,7 +106,7 @@ deploy: ## Deploy to fly.io
 		--install datasette-search-all \
 		--install datasette-configure-fts \
 		--install datasette-geojson \
-		 --load-extension=spatialite \
+		# --load-extension=spatialite \
 		--setting base_url https://palewi.re/data/
 
 #

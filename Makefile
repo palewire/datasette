@@ -86,7 +86,8 @@ install_plugins: ## Install datasette plugins
 		datasette-copyable \
 		datasette-search-all \
 		datasette-configure-fts \
-		datasette-geojson
+		datasette-geojson \
+		datasette-geojson-map
 
 serve: ## Serve a local test site
 	@$(PIPENV) datasette \
@@ -106,7 +107,8 @@ deploy: ## Deploy to fly.io
 		--install datasette-search-all \
 		--install datasette-configure-fts \
 		--install datasette-geojson \
-		# --load-extension=spatialite \
+		--install datasette-geojson-map \
+		--spatialite \
 		--setting base_url https://palewi.re/data/
 
 #

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "387d0e2e056f1c50241c8760bc377bc1a51012fe18604b1c862a80555a2ac6c7"
+            "sha256": "80bd0d7dda57adde87bb5db29d56cdca6cc6e2de66a219017e83ea1b844014f7"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -106,6 +106,14 @@
             "hashes": [
                 "sha256:6de231185b40d1ea07775f0e09d15ac2d9879685b8b683a84442a96371b971f4",
                 "sha256:ecf7ca75b084b57d0a8007cfb9965cdae53fbb29fe8f0a41feffff941a23da8a"
+            ],
+            "index": "pypi",
+            "version": "==0.4.0"
+        },
+        "datasette-geojson-map": {
+            "hashes": [
+                "sha256:4035a5ae8e5d8caaad31c2ad68e388bbb14b34e3aa94e556fd34491a599c2c40",
+                "sha256:858701f2bbd60363052b3683d2bbfe73b05ed575c51d3bee3e57690089cb663c"
             ],
             "index": "pypi",
             "version": "==0.4.0"

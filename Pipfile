@@ -15,6 +15,7 @@ datasette-search-all = "*"
 datasette-geojson = "*"
 geojson-to-sqlite = "*"
 spatialite = "*"
+datasette-geojson-map = "*"
 
 [dev-packages]
 

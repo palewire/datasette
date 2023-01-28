@@ -66,13 +66,13 @@ PYTHON := python -W ignore -m
 # Commands
 #
 
-all: public-records.db
+all: cedar-rapids-buildings-unsafe-after-derecho-2020.db
 
-public-records.db:
-	@curl -L https://raw.githubusercontent.com/palewire/cedar-rapids-buildings-unsafe-after-derecho-2020/master/output/placards.csv | $(PIPENV) sqlite-utils insert public-records.db cedar-rapids-buildings-unsafe-after-derecho-2020 - --csv
+cedar-rapids-buildings-unsafe-after-derecho-2020.db:
+	@curl -L https://raw.githubusercontent.com/palewire/cedar-rapids-buildings-unsafe-after-derecho-2020/master/output/placards.csv | $(PIPENV) sqlite-utils insert cedar-rapids-buildings-unsafe-after-derecho-2020.db placards - --csv
 
 clean:
-	rm public-records.db
+	rm ./*.db
 
 install_plugins: ## Install datasette plugins
 	@$(PIPENV) datasette install \
@@ -81,7 +81,8 @@ install_plugins: ## Install datasette plugins
 		datasette-copyable
 
 serve: ## Serve a local test site
-	@$(PIPENV) datasette ./public-records.db \
+	@$(PIPENV) datasette \
+		./cedar-rapids-buildings-unsafe-after-derecho-2020.db \
 		-m metadata.yml
 
 deploy: ## Deploy to fly.io

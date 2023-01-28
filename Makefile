@@ -78,7 +78,9 @@ install_plugins: ## Install datasette plugins
 	@$(PIPENV) datasette install \
 		datasette-cluster-map \
 		datasette-vega \
-		datasette-copyable
+		datasette-copyable \
+		datasette-search-all \
+		datasette-configure-fts
 
 serve: ## Serve a local test site
 	@$(PIPENV) datasette \
@@ -94,6 +96,8 @@ deploy: ## Deploy to fly.io
 		--install datasette-cluster-map \
 		--install datasette-vega \
 		--install datasette-copyable \
+		--install datasette-search-all \
+		--install datasette-configure-fts \
 		--setting base_url https://palewi.re/data/
 
 #

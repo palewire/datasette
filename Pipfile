@@ -10,6 +10,8 @@ datasette-cluster-map = "*"
 datasette-vega = "*"
 datasette-copyable = "*"
 sqlite-utils = "*"
+datasette-configure-fts = "*"
+datasette-search-all = "*"
 
 [dev-packages]
 

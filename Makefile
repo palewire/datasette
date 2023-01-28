@@ -66,7 +66,8 @@ PYTHON := python -W ignore -m
 # Commands
 #
 
-all: cedar-rapids-buildings-unsafe-after-derecho-2020.db
+all: cedar-rapids-buildings-unsafe-after-derecho-2020.db \
+     chicago-regions.db
 
 cedar-rapids-buildings-unsafe-after-derecho-2020.db:
 	@curl -L https://raw.githubusercontent.com/palewire/cedar-rapids-buildings-unsafe-after-derecho-2020/master/output/placards.csv | $(PIPENV) sqlite-utils insert cedar-rapids-buildings-unsafe-after-derecho-2020.db placards - --csv
@@ -92,6 +93,7 @@ install_plugins: ## Install datasette plugins
 serve: ## Serve a local test site
 	@$(PIPENV) datasette \
 		./cedar-rapids-buildings-unsafe-after-derecho-2020.db \
+		./chicago-regions.db \
 		-m metadata.yml \
 		--load-extension spatialite
 
@@ -99,6 +101,7 @@ deploy: ## Deploy to fly.io
 	$(call banner,  🚢 Deploying the site 🚢)
 	@$(PIPENV) datasette publish fly \
 		./cedar-rapids-buildings-unsafe-after-derecho-2020.db \
+		./chicago-regions.db \
 		-m metadata.yml \
 		--app="datasette-palewi-re" \
 		--install datasette-cluster-map \

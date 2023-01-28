@@ -71,8 +71,13 @@ all: cedar-rapids-buildings-unsafe-after-derecho-2020.db
 cedar-rapids-buildings-unsafe-after-derecho-2020.db:
 	@curl -L https://raw.githubusercontent.com/palewire/cedar-rapids-buildings-unsafe-after-derecho-2020/master/output/placards.csv | $(PIPENV) sqlite-utils insert cedar-rapids-buildings-unsafe-after-derecho-2020.db placards - --csv
 
+chicago-regions.db:
+	curl -L https://raw.githubusercontent.com/palewire/chicago-regions-map/main/output/regions.geojson | $(PIPENV) geojson-to-sqlite chicago-regions.db regions - --spatial-index
+
 clean:
-	rm ./*.db
+	@rm -f ./*.db
+	@rm -f ./*.geojson
+	@rm -f ./*.csv
 
 install_plugins: ## Install datasette plugins
 	@$(PIPENV) datasette install \
@@ -80,12 +85,14 @@ install_plugins: ## Install datasette plugins
 		datasette-vega \
 		datasette-copyable \
 		datasette-search-all \
-		datasette-configure-fts
+		datasette-configure-fts \
+		datasette-geojson
 
 serve: ## Serve a local test site
 	@$(PIPENV) datasette \
 		./cedar-rapids-buildings-unsafe-after-derecho-2020.db \
-		-m metadata.yml
+		-m metadata.yml \
+		--load-extension spatialite
 
 deploy: ## Deploy to fly.io
 	$(call banner,  🚢 Deploying the site 🚢)
@@ -98,6 +105,8 @@ deploy: ## Deploy to fly.io
 		--install datasette-copyable \
 		--install datasette-search-all \
 		--install datasette-configure-fts \
+		--install datasette-geojson \
+		 --load-extension=spatialite \
 		--setting base_url https://palewi.re/data/
 
 #

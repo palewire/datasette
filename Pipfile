@@ -12,6 +12,9 @@ datasette-copyable = "*"
 sqlite-utils = "*"
 datasette-configure-fts = "*"
 datasette-search-all = "*"
+datasette-geojson = "*"
+geojson-to-sqlite = "*"
+spatialite = "*"
 
 [dev-packages]
 

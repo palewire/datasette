@@ -21,6 +21,7 @@ jobs:
           python-version: '3.9'
           cache: 'pipenv'
       - run: curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python
+      - run: sudo apt install libsqlite3-mod-spatialite
       - run: pipenv sync --dev
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - run: make install_plugins

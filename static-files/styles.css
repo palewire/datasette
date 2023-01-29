@@ -2,6 +2,11 @@ body {
   background-color: #ffffff;
 }
 
+.container {
+  max-width: 755px;
+  margin: 0 auto;
+}
+
 header, footer {
   color: black;
 }

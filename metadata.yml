@@ -1,6 +1,9 @@
 title: palewi.re/data
 description: Public records gathered by web scrapers and Freedom of Information Act requests
 
+extra_css_urls:
+ - /assets/styles.css
+
 databases:
   cedar-rapids-buildings-unsafe-after-derecho-2020:
     description: Buildings marked as unsafe to occupy by the Cedar Rapids city government following the 2020 derecho storms

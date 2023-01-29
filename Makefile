@@ -95,7 +95,9 @@ serve: ## Serve a local test site
 		./cedar-rapids-buildings-unsafe-after-derecho-2020.db \
 		./chicago-regions.db \
 		-m metadata.yml \
-		--load-extension spatialite
+		--load-extension spatialite \
+		--template-dir=./templates/ \
+		--static assets:./static-files/
 
 deploy: ## Deploy to fly.io
 	$(call banner,  🚢 Deploying the site 🚢)
@@ -112,6 +114,8 @@ deploy: ## Deploy to fly.io
 		--install datasette-geojson \
 		--install datasette-geojson-map \
 		--spatialite \
+		--template-dir=./templates/ \
+		--static assets:./static-files/ \
 		--setting base_url https://palewi.re/data/
 
 #

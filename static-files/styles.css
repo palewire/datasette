@@ -1,0 +1,29 @@
+body {
+  background-color: #ffffff;
+}
+
+header, footer {
+  color: black;
+}
+
+header {
+  background-color: #dddddd;
+}
+
+footer {
+  background-color: #ffffff;
+}
+
+header a:link, footer a:link {
+  color: black;
+  text-decoration: underline;
+}
+
+header a:visited, footer a:visited {
+  color: black;
+  text-decoration: underline;
+}
+
+header a:hover, footer a:hover {
+  text-decoration: none;
+}

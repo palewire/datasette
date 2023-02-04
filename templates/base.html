@@ -17,60 +17,79 @@
 </head>
 <body class="{% block body_class %}{% endblock %}">
 <div class="container">
-<div class="not-footer">
-<header><nav>{% block nav %}{% block crumbs %}{{ crumbs.nav(request=request) }}{% endblock %}
-    {% set links = menu_links() %}{% if links or show_logout %}
-    <details class="nav-menu details-menu">
-        <summary><svg aria-labelledby="nav-menu-svg-title" role="img"
-            fill="currentColor" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 16 16" width="16" height="16">
-                <title id="nav-menu-svg-title">Menu</title>
-                <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"></path>
-        </svg></summary>
-        <div class="nav-menu-inner">
-            {% if links %}
-            <ul>
-                {% for link in links %}
-                <li><a href="{{ link.href }}">{{ link.label }}</a></li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-            {% if show_logout %}
-            <form action="{{ urls.logout() }}" method="post">
-                <input type="hidden" name="csrftoken" value="{{ csrftoken() }}">
-                <button class="button-as-link">Log out</button>
-            </form>{% endif %}
+    {% block nav %}
+    <nav>
+        <div class="row">
+            <div class="sevencol">
+                <div class="shingle">
+                    <a href="https://palewi.re/">
+                        <div rel="rnews:copyrightedBy rnews:hasSource rnews:providedBy">
+                            <div about="http://palewi.re/" typeof="rnews:Organization">
+                                <div property="rnews:name">palewire</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="fivecol last links">
+                <ul>
+                    <li>
+                        <a href="http://palewi.re/posts/" title="Posts">
+                            Posts
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://palewi.re/work/" title="Work">
+                            Work
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://palewi.re/talks/" title="Talks">
+                            Talks
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://palewi.re/docs/" title="Docs">
+                            Docs
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://palewi.re/who-is-ben-welsh/" title="Who is Ben Welsh?">
+                            About
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </details>{% endif %}
-    {% if actor %}
-    <div class="actor">
-        <strong>{{ display_actor(actor) }}</strong>
+    </nav>
+    <div class="row topbar">
+        <div class="twelvecol last"></div>
     </div>
+    {% endblock %}
+
+
+    {% block messages %}
+    {% if show_messages %}
+        {% for message, message_type in show_messages() %}
+            <p class="message-{% if message_type == 1 %}info{% elif message_type == 2 %}warning{% elif message_type == 3 %}error{% endif %}">{{ message }}</p>
+        {% endfor %}
     {% endif %}
-{% endblock %}</nav></header>
+    {% endblock %}
 
-{% block messages %}
-{% if show_messages %}
-    {% for message, message_type in show_messages() %}
-        <p class="message-{% if message_type == 1 %}info{% elif message_type == 2 %}warning{% elif message_type == 3 %}error{% endif %}">{{ message }}</p>
+    <section class="content row">
+        <div class="interiorlist twelvecol last">
+        {% block content %}
+        {% endblock %}
+        </div>
+    </section>
+
+    {% include "_close_open_menus.html" %}
+
+    {% for body_script in body_scripts %}
+        <script{% if body_script.module %} type="module"{% endif %}>{{ body_script.script }}</script>
     {% endfor %}
-{% endif %}
-{% endblock %}
 
-<section class="content">
-{% block content %}
-{% endblock %}
-</section>
-</div>
-<footer class="ft">{% block footer %}{% include "_footer.html" %}{% endblock %}</footer>
-
-{% include "_close_open_menus.html" %}
-
-{% for body_script in body_scripts %}
-    <script{% if body_script.module %} type="module"{% endif %}>{{ body_script.script }}</script>
-{% endfor %}
-
-{% if select_templates %}<!-- Templates considered: {{ select_templates|join(", ") }} -->{% endif %}
+    {% if select_templates %}<!-- Templates considered: {{ select_templates|join(", ") }} -->{% endif %}
 </div>
 </body>
 </html>

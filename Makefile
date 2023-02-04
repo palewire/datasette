@@ -105,6 +105,7 @@ deploy: ## Deploy to fly.io
 		./cedar-rapids-buildings-unsafe-after-derecho-2020.db \
 		./chicago-regions.db \
 		-m metadata.yml \
+		--local-only \
 		--app="datasette-palewi-re" \
 		--install datasette-cluster-map \
 		--install datasette-vega \

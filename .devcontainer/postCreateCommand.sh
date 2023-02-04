@@ -1,6 +1,6 @@
-sudo apt install libsqlite3-mod-spatialite
+echo 'Installing Spatialite'
+apt install libsqlite3-mod-spatialite
+echo 'Installing Python dependencies'
 pipenv sync --dev
+echo 'Installing Datasette plugins'
 make install_plugins
-curl -L https://fly.io/install.sh | sh
-export FLYCTL_INSTALL="/home/vscode/.fly"
-export PATH="$FLYCTL_INSTALL/bin:$PATH"

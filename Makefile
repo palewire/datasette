@@ -88,7 +88,6 @@ install_plugins: ## Install datasette plugins
 	@$(PIPENV) datasette install \
 		datasette-cluster-map \
 		datasette-vega \
-		datasette-copyable \
 		datasette-search-all \
 		datasette-configure-fts \
 		datasette-geojson \
@@ -115,7 +114,6 @@ deploy: ## Deploy to fly.io
 		--app="datasette-palewi-re" \
 		--install datasette-cluster-map \
 		--install datasette-vega \
-		--install datasette-copyable \
 		--install datasette-search-all \
 		--install datasette-configure-fts \
 		--install datasette-geojson \

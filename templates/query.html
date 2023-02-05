@@ -77,7 +77,7 @@
 </form>
 
 {% if display_rows %}
-<p class="export-links">This data as {% for name, url in renderers.items() %}<a href="{{ url }}">{{ name }}</a>{{ ", " if not loop.last }}{% endfor %}, <a href="{{ url_csv }}">CSV</a></p>
+<small class="export-links">This data as {% for name, url in renderers.items() %}<a href="{{ url }}">{{ name }}</a>{{ ", " if not loop.last }}{% endfor %}, <a href="{{ url_csv }}">CSV</a></small>
 <div class="table-wrapper"><table class="rows-and-columns">
     <thead>
         <tr>

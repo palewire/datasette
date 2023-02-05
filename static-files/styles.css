@@ -336,7 +336,91 @@ table.rows-and-columns {
   border-spacing: 0;
 }
 
-.table td, .table th {
+.rows-and-columns td, .rows-and-columns th {
   padding: .375rem;
   min-width: 100px;
+  border-right: 0;
+  border-left: 0;
+  border-top: 0;
+}
+
+.rows-and-columns td {
+  border-bottom: 1px solid #efefef;
+}
+
+.rows-and-columns th {
+  font-weight: 700;
+  border-bottom: 3px solid #e5e5e5;
+}
+
+.rows-and-columns th a {
+  color: black;
+}
+
+@media only screen and (max-width: 576px) {
+  table.rows-and-columns,
+  /* .rows-and-columns thead,
+  .rows-and-columns tbody,
+  .rows-and-columns th,
+  .rows-and-columns td,
+  .rows-and-columns tr {
+      display: auto;
+  } */
+  .rows-and-columns thead tr {
+      position: relative;
+      top: unset;
+      left: unset;
+  }
+  .rows-and-columns tr {
+      border: 0;
+      margin-bottom: unset;
+      border-radius: 0;
+      background-color: white;
+      padding: 0;
+  }
+
+  .rows-and-columns td {
+    padding: .375rem;
+    min-width: 100px;
+    border-right: 0;
+    border-left: 0;
+    border-top: 0;
+  
+  }
+
+  .rows-and-columns td:before {
+      display: none;
+  }
+}
+
+.leaflet-container {
+  margin-top: 2em;
+}
+
+.datasette-vega, .vega-embed {
+  margin-left: 1em;
+}
+
+.advanced-export {
+  box-shadow: none;
+  border: 0;
+  padding-left: 0;
+  width: 100%;
+}
+
+ul.bullets {
+  padding-left: 0;
+}
+ul.bullets li {
+  min-height: 1.5em;
+  padding: 0.2em 0;
+  margin: 0;
+  line-height: 1.5em;
+  font-size: 1em;
+  list-style-type: square;
+  list-style-position: outside;
+}
+
+.facet-results {
+  margin-top: 10px;
 }

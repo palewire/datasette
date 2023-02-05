@@ -10,7 +10,6 @@
 {% block body_class %}db db-{{ database|to_css_class }}{% endblock %}
 
 {% block content %}
-<div class="interiorlist twelvecol last">
     <h1>{{ metadata.title or database }}{% if private %} 🔒{% endif %}</h1>
     {% set links = database_actions() %}{% if links %}
     <details class="actions-menu-links details-menu">
@@ -32,7 +31,6 @@
             {% endif %}
         </div>
     </details>{% endif %}
-</div> 
 
 {% if metadata.description_html or metadata.description %}
 <p class="description">
@@ -97,7 +95,7 @@
 
 {% if views %}
     <h2 id="views" class="section-hed">Views</h2>
-    <ul class="bullets">
+    <ul>
         {% for view in views %}
             <li><a href="{{ urls.database(database) }}/{{ view.name|urlencode }}">{{ view.name }}</a>{% if view.private %} 🔒{% endif %}</li>
         {% endfor %}

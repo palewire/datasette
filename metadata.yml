@@ -23,9 +23,15 @@ databases:
   chicago-regions:
     description: A regional map of Chicago based on the city's official designations
     source: Derived from data published by the City of Chicago
-    source_url: https://github.com/palewire/chicago-regions-map/
+    source_url: https://github.com/palewire/chicago-regions-map/A regional map of Chicago based on the city's official designations
+    tables:
+      regions:
+        description: A regional map of Chicago based on the city's official designations
 
-  la-county-2016-primary-precinct-maps:
-    description: Maps of the consolidated precincts used in Los Angeles County's 2016 primary election
+  la-county-election-precinct-maps-2016-primary:
+    description: Consolidated precincts used in Los Angeles County's 2016 primary election
     source: Los Angeles County Registrar-Record/County Clerk
     source_url: https://github.com/datadesk/la-county-2016-primary-precinct-maps
+    tables:
+      precincts:
+        description: Consolidated precincts used in Los Angeles County's 2016 primary election

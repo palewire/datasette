@@ -21,29 +21,27 @@
 {% endblock %}
 
 {% block content %}
-<div class="interiorlist twelvecol last">
-    <h1>{{ metadata.title or table }}{% if is_view %} (view){% endif %}{% if private %} 🔒{% endif %}</h1>
-    {% set links = table_actions() %}{% if links %}
-    <details class="actions-menu-links details-menu">
-        <summary><svg aria-labelledby="actions-menu-links-title" role="img"
-                style="color: #666" xmlns="http://www.w3.org/2000/svg"
-                width="28" height="28" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <title id="actions-menu-links-title">Table actions</title>
-            <circle cx="12" cy="12" r="3"></circle>
-            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-        </svg></summary>
-        <div class="dropdown-menu">
-            {% if links %}
-            <ul>
-                {% for link in links %}
-                <li><a href="{{ link.href }}">{{ link.label }}</a></li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-        </div>
-    </details>{% endif %}
-</div>
+<h1>{{ metadata.title or table }}{% if is_view %} (view){% endif %}{% if private %} 🔒{% endif %}</h1>
+{% set links = table_actions() %}{% if links %}
+<details class="actions-menu-links details-menu">
+    <summary><svg aria-labelledby="actions-menu-links-title" role="img"
+            style="color: #666" xmlns="http://www.w3.org/2000/svg"
+            width="28" height="28" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <title id="actions-menu-links-title">Table actions</title>
+        <circle cx="12" cy="12" r="3"></circle>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+    </svg></summary>
+    <div class="dropdown-menu">
+        {% if links %}
+        <ul>
+            {% for link in links %}
+            <li><a href="{{ link.href }}">{{ link.label }}</a></li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</details>{% endif %}
 
 {% if metadata.description_html or metadata.description %}
 <p class="description">
@@ -64,9 +62,9 @@
 {% endif %}
 
 {% if count or human_description_en %}
-    <h3>{% if count or count == 0 %}{{ "{:,}".format(count) }} row{% if count == 1 %}{% else %}s{% endif %}{% endif %}
+    <p class="description">{% if count or count == 0 %}{{ "{:,}".format(count) }} row{% if count == 1 %}{% else %}s{% endif %}{% endif %}
         {% if human_description_en %}{{ human_description_en }}{% endif %}
-    </h3>
+    </p>
 {% endif %}
 
 <h3 class="section-hed">Explore the data</h3>
@@ -131,7 +129,7 @@
 
 {% if extra_wheres_for_ui %}
 <div class="extra-wheres">
-    <h3>{{ extra_wheres_for_ui|length }} extra where clause{% if extra_wheres_for_ui|length != 1 %}s{% endif %}</h3>
+    <p class="description">{{ extra_wheres_for_ui|length }} extra where clause{% if extra_wheres_for_ui|length != 1 %}s{% endif %}</p>
     <ul>
     {% for extra_where in extra_wheres_for_ui %}
         <li><code>{{ extra_where.text }}</code> [<a href="{{ extra_where.remove_url }}">remove</a>]</li>
@@ -164,33 +162,9 @@
      <p><a href="{{ next_url }}">Next page</a></p>
 {% endif %}
 
-{% if display_rows %}
-    <div id="export" class="advanced-export">
-        <h3 class="section-hed">Advanced export</h3>
-        <p>JSON shape:
-            <a href="{{ renderers['json'] }}">default</a>,
-            <a href="{{ append_querystring(renderers['json'], '_shape=array') }}">array</a>,
-            <a href="{{ append_querystring(renderers['json'], '_shape=array&_nl=on') }}">newline-delimited</a>{% if primary_keys %},
-                <a href="{{ append_querystring(renderers['json'], '_shape=object') }}">object</a>
-            {% endif %}
-        </p>
-        <form action="{{ url_csv_path }}" method="get">
-            <p>
-                CSV options:
-                <label><input type="checkbox" name="_dl"> download file</label>
-                {% if expandable_columns %}<label><input type="checkbox" name="_labels" checked> expand labels</label>{% endif %}
-                {% if next_url and settings.allow_csv_stream %}<label><input type="checkbox" name="_stream"> stream all rows</label>{% endif %}
-                <input type="submit" value="Export CSV">
-                {% for key, value in url_csv_hidden_args %}
-                    <input type="hidden" name="{{ key }}" value="{{ value }}">
-                {% endfor %}
-            </p>
-        </form>
-    </div>
-{% endif %}
-
 {% if table_definition %}
-    <pre class="wrapped-sql">{{ table_definition }}</pre>
+<h3 class="section-hed">Table definition</h3>
+<pre class="wrapped-sql">{{ table_definition }}</pre>
 {% endif %}
 
 {% if view_definition %}

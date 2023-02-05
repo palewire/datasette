@@ -198,6 +198,7 @@ nav {
   margin-bottom: 0.5em;
   font-size: 1em;
   line-height: 1.7em;
+  height: 34px;
 }
 nav .shingle {
   font-size: 1.7em;
@@ -226,7 +227,6 @@ nav .links {
 nav .links ul {
   float: right;
   list-style-type: none;
-  margin: 4px 0 0 0;
 }
 nav .links li {
   float: left;

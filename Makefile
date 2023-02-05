@@ -67,13 +67,17 @@ PYTHON := python -W ignore -m
 #
 
 all: cedar-rapids-buildings-unsafe-after-derecho-2020.db \
-     chicago-regions.db
+     chicago-regions.db \
+	 la-county-2016-primary-precinct-maps.db
 
 cedar-rapids-buildings-unsafe-after-derecho-2020.db:
 	@curl -L https://raw.githubusercontent.com/palewire/cedar-rapids-buildings-unsafe-after-derecho-2020/master/output/placards.csv | $(PIPENV) sqlite-utils insert cedar-rapids-buildings-unsafe-after-derecho-2020.db placards - --csv
 
 chicago-regions.db:
 	curl -L https://raw.githubusercontent.com/palewire/chicago-regions-map/main/output/regions.geojson | $(PIPENV) geojson-to-sqlite chicago-regions.db regions - --spatial-index
+
+la-county-2016-primary-precinct-maps.db:
+	curl -L https://raw.githubusercontent.com/datadesk/la-county-2016-primary-precinct-maps/master/Consolidations.geojson | $(PIPENV) geojson-to-sqlite la-county-2016-primary-precinct-maps.db precincts - --spatial-index
 
 clean:
 	@rm -f ./*.db
@@ -94,6 +98,7 @@ serve: ## Serve a local test site
 	@$(PIPENV) datasette \
 		./cedar-rapids-buildings-unsafe-after-derecho-2020.db \
 		./chicago-regions.db \
+		./la-county-2016-primary-precinct-maps.db \
 		-m metadata.yml \
 		--load-extension spatialite \
 		--template-dir=./templates/ \
@@ -104,6 +109,7 @@ deploy: ## Deploy to fly.io
 	@$(PIPENV) datasette publish fly \
 		./cedar-rapids-buildings-unsafe-after-derecho-2020.db \
 		./chicago-regions.db \
+		./la-county-2016-primary-precinct-maps.db \
 		-m metadata.yml \
 		--app="datasette-palewi-re" \
 		--install datasette-cluster-map \

@@ -5,15 +5,25 @@
 {% block body_class %}index{% endblock %}
 
 {% block content %}
+<div class="interiorlist twelvecol last">
 <h1>{{ metadata.title or "Datasette" }}{% if private %} 🔒{% endif %}</h1>
 
-{% block description_source_license %}{% include "_description_source_license.html" %}{% endblock %}
+{% if metadata.description_html or metadata.description %}
+<p class="description">
+    {% if metadata.description_html %}
+        {{ metadata.description_html|safe }}
+    {% else %}
+        {{ metadata.description }}
+    {% endif %}
+</p>
+{% endif %}
 
 {% for database in databases %}
-    <h2 style="padding-left: 10px; border-left: 10px solid #{{ database.color }}"><a href="{{ urls.database(database.name) }}">{{ database.name }}</a>{% if database.private %} 🔒{% endif %}</h2>
-    <p>
-        {% if database.show_table_row_counts %}{{ "{:,}".format(database.table_rows_sum) }} rows in {% endif %}{{ database.tables_count }} table{% if database.tables_count != 1 %}s{% endif %}
-    </p>
+<div class="row">
+    <div class="listitem twelvecol last">
+        <a href="{{ urls.database(database.name) }}">{{ database.name }}</a> {% if database.description %} • {{ database.description }}{% endif %}
+    </div>
+</div>
 {% endfor %}
-
+</div>
 {% endblock %}

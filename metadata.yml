@@ -12,9 +12,11 @@ databases:
     tables:
       placards:
         description_html: |-
-          <p>A list of 140 buildings was released by the Cedar Rapids City Clerk's Office on August 19, 2020, in response to my public records request. The raw file is available in <a href="https://github.com/palewire/cedar-rapids-buildings-unsafe-after-derecho-2020/blob/master/input/PlacardProperties_19Aug0930.xlsx">PlacardProperties_19Aug0930.xlsx</a>. I mapped the addresses using the geocoding service at <a href="https://geocod.io">geocod.io</a>. It's possible that process included some mapping errors.</p>
+          <p class="description">A list of 140 buildings was released by the Cedar Rapids City Clerk's Office on August 19, 2020, in response to my public records request. The raw file is available in <a href="https://github.com/palewire/cedar-rapids-buildings-unsafe-after-derecho-2020/blob/master/input/PlacardProperties_19Aug0930.xlsx">as an Excel spreadsheet</a>.
 
-          <p>The city official who released the data offered this cautionary note:</p>
+          <p class="description">I mapped the addresses using the geocoding service at <a href="https://geocod.io">geocod.io</a>. It's possible that process included some mapping errors.</p>
+
+          <p class="description">The city official who released the data offered this cautionary note:</p>
 
           <blockquote>The number of properties that are “unsafe to occupy” will change based on further inspections by certified building inspectors as well as work completed to mitigate the hazard such as removal of a tree or a professional contractor that has completed work to stabilize or fix the structure.</blockquote>
 

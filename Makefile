@@ -102,7 +102,8 @@ serve: ## Serve a local test site
 		-m metadata.yml \
 		--load-extension spatialite \
 		--template-dir=./templates/ \
-		--static assets:./static-files/
+		--static assets:./static-files/ \
+		--setting allow_download on
 
 deploy: ## Deploy to fly.io
 	$(call banner,  🚢 Deploying the site 🚢)

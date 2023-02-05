@@ -45,6 +45,8 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-weight: 800;
   font-size: 220%;
+  line-height: 1.2;
+  margin-bottom: 8px;
 }
 
 a:link {
@@ -278,10 +280,17 @@ ul.bullets {
   margin: 0 0 0.5em 0;
 }
 
+.interiorlist blockquote {
+  font-size: 1em;
+  margin: 0 0 0.5em 0;
+  padding-left: 0.5em;
+  border-left: 3px solid gray;
+}
+
 .interiorlist .section-hed {
   font-weight: 700;
   font-size: 1.1em;
-  margin: 0.4em 0 0.2em;
+  margin: 1em 0 0.2em;
   padding: 0.05em 0 0.25em;
   border-bottom: thin dotted #ccc;
 }
@@ -299,4 +308,35 @@ ul.bullets {
   .interiorlist .listitem {
      padding-left: 0;
   }
+}
+
+pre, code, .CodeMirror, .CodeMirror-code {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.CodeMirror {
+  margin: 10px 0;
+}
+
+small {
+  font-size: 14px;
+  display: block;
+  margin-top: 4px;
+}
+
+.filters {
+  margin: 10px 0;
+}
+
+table.rows-and-columns {
+  font-size: .9rem;
+  line-height: 1.55;
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.table td, .table th {
+  padding: .375rem;
+  min-width: 100px;
 }

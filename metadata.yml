@@ -55,10 +55,18 @@ databases:
   la-county-election-precinct-maps-2020-general:
     description: Consolidated precincts used in Los Angeles County's 2020 general election
     source: Los Angeles County Registrar-Record/County Clerk
-    source_url: https://github.com/datadesk/la-county-election-precincts-2020/tree/main
+    source_url: https://github.com/datadesk/la-county-election-precincts-2020
     tables:
       precincts:
         description: Consolidated precincts used in Los Angeles County's 2020 general election
+
+  la-county-tsunami-hazard-zones:
+    description: Areas at risk of tsunami flooding in Los Angeles County
+    source: California Geological Survey
+    source_url: https://github.com/datadesk/los-angeles-county-tsunami-hazard-areas
+    tables:
+      zones:
+        description:  Areas at risk of tsunami flooding in Los Angeles County
 
   lausd-school-campus-maps:
     description: The areas of school campuses run by the Los Angeles Unified School District

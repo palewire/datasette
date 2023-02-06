@@ -72,6 +72,7 @@ all: cedar-rapids-buildings-unsafe-after-derecho-2020.db \
 	la-county-election-precinct-maps-2018-primary.db \
 	la-county-election-precinct-maps-2018-general.db \
 	la-county-election-precinct-maps-2020-general.db \
+	la-county-tsunami-hazard-zones.db \
 	lausd-school-campus-maps.db
 
 cedar-rapids-buildings-unsafe-after-derecho-2020.db:
@@ -91,6 +92,9 @@ la-county-election-precinct-maps-2018-general.db:
 
 la-county-election-precinct-maps-2020-general.db:
 	curl -L https://github.com/datadesk/la-county-election-precincts-2020/raw/main/json/la-precincts.json | $(PIPENV) geojson-to-sqlite la-county-election-precinct-maps-2020-general.db precincts - --spatial-index
+
+la-county-tsunami-hazard-zones.db:
+	curl -L https://github.com/datadesk/los-angeles-county-tsunami-hazard-areas/raw/main/areas.json | $(PIPENV) geojson-to-sqlite la-county-tsunami-hazard-zones.db zones - --spatial-index
 
 lausd-school-campus-maps.db:
 	curl -L https://github.com/datadesk/lausd-school-campus-polygons/raw/master/lausd-school-campus-polygons.geojson | $(PIPENV) geojson-to-sqlite lausd-school-campus-maps.db campuses - --spatial-index
@@ -117,6 +121,7 @@ serve: ## Serve a local test site
 		./la-county-election-precinct-maps-2018-primary.db \
 		./la-county-election-precinct-maps-2018-general.db \
 		./la-county-election-precinct-maps-2020-general.db \
+		./la-county-tsunami-hazard-zones.db \
 		./lausd-school-campus-maps.db \
 		-m metadata.yml \
 		--load-extension spatialite \
@@ -133,6 +138,7 @@ deploy: ## Deploy to fly.io
 		./la-county-election-precinct-maps-2018-primary.db \
 		./la-county-election-precinct-maps-2018-general.db \
 		./la-county-election-precinct-maps-2020-general.db \
+		./la-county-tsunami-hazard-zones.db \
 		./lausd-school-campus-maps.db \
 		-m metadata.yml \
 		--app="datasette-palewi-re" \

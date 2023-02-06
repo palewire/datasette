@@ -35,3 +35,27 @@ databases:
     tables:
       precincts:
         description: Consolidated precincts used in Los Angeles County's 2016 primary election
+
+  la-county-election-precinct-maps-2018-primary:
+    description: Consolidated precincts used in Los Angeles County's 2018 primary election
+    source: Los Angeles County Registrar-Record/County Clerk
+    source_url: https://github.com/datadesk/la-county-election-precincts-2018
+    tables:
+      precincts:
+        description: Consolidated precincts used in Los Angeles County's 2018 primary election
+
+  la-county-election-precinct-maps-2018-general:
+    description: Consolidated precincts used in Los Angeles County's 2018 general election
+    source: Los Angeles County Registrar-Record/County Clerk
+    source_url: https://github.com/datadesk/la-county-election-precincts-2018
+    tables:
+      precincts:
+        description: Consolidated precincts used in Los Angeles County's 2018 general election
+
+  la-county-election-precinct-maps-2020-general:
+    description: Consolidated precincts used in Los Angeles County's 2020 general election
+    source: Los Angeles County Registrar-Record/County Clerk
+    source_url: https://github.com/datadesk/la-county-election-precincts-2020/tree/main
+    tables:
+      precincts:
+        description: Consolidated precincts used in Los Angeles County's 2020 general election

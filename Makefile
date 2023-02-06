@@ -71,7 +71,8 @@ all: cedar-rapids-buildings-unsafe-after-derecho-2020.db \
 	la-county-election-precinct-maps-2016-primary.db \
 	la-county-election-precinct-maps-2018-primary.db \
 	la-county-election-precinct-maps-2018-general.db \
-	la-county-election-precinct-maps-2020-general.db
+	la-county-election-precinct-maps-2020-general.db \
+	lausd-school-campus-maps.db
 
 cedar-rapids-buildings-unsafe-after-derecho-2020.db:
 	@curl -L https://raw.githubusercontent.com/palewire/cedar-rapids-buildings-unsafe-after-derecho-2020/master/output/placards.csv | $(PIPENV) sqlite-utils insert cedar-rapids-buildings-unsafe-after-derecho-2020.db placards - --csv
@@ -90,6 +91,9 @@ la-county-election-precinct-maps-2018-general.db:
 
 la-county-election-precinct-maps-2020-general.db:
 	curl -L https://github.com/datadesk/la-county-election-precincts-2020/raw/main/json/la-precincts.json | $(PIPENV) geojson-to-sqlite la-county-election-precinct-maps-2020-general.db precincts - --spatial-index
+
+lausd-school-campus-maps.db:
+	curl -L https://github.com/datadesk/lausd-school-campus-polygons/raw/master/lausd-school-campus-polygons.geojson | $(PIPENV) geojson-to-sqlite lausd-school-campus-maps.db campuses - --spatial-index
 
 clean:
 	@rm -f ./*.db
@@ -113,6 +117,7 @@ serve: ## Serve a local test site
 		./la-county-election-precinct-maps-2018-primary.db \
 		./la-county-election-precinct-maps-2018-general.db \
 		./la-county-election-precinct-maps-2020-general.db \
+		./lausd-school-campus-maps.db \
 		-m metadata.yml \
 		--load-extension spatialite \
 		--template-dir=./templates/ \
@@ -128,6 +133,7 @@ deploy: ## Deploy to fly.io
 		./la-county-election-precinct-maps-2018-primary.db \
 		./la-county-election-precinct-maps-2018-general.db \
 		./la-county-election-precinct-maps-2020-general.db \
+		./lausd-school-campus-maps.db \
 		-m metadata.yml \
 		--app="datasette-palewi-re" \
 		--install datasette-cluster-map \

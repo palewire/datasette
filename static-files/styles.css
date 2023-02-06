@@ -358,14 +358,22 @@ table.rows-and-columns {
 }
 
 @media only screen and (max-width: 576px) {
-  table.rows-and-columns,
-  /* .rows-and-columns thead,
-  .rows-and-columns tbody,
-  .rows-and-columns th,
-  .rows-and-columns td,
+  table.rows-and-columns {
+    display: table;
+  }
+  .rows-and-columns thead {
+    display: table-header-group;
+  }
+  .rows-and-columns tbody {
+    display: table-row-group;
+  }
   .rows-and-columns tr {
-      display: auto;
-  } */
+    display: table-row;
+  }
+  .rows-and-columns th,
+  .rows-and-columns td {
+    display: table-cell;
+  }
   .rows-and-columns thead tr {
       position: relative;
       top: unset;
@@ -381,7 +389,6 @@ table.rows-and-columns {
 
   .rows-and-columns td {
     padding: .375rem;
-    min-width: 100px;
     border-right: 0;
     border-left: 0;
     border-top: 0;

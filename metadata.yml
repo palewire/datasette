@@ -59,3 +59,11 @@ databases:
     tables:
       precincts:
         description: Consolidated precincts used in Los Angeles County's 2020 general election
+
+  lausd-school-campus-maps:
+    description: The areas of school campuses run by the Los Angeles Unified School District
+    source: Los Angeles Unified School District
+    source_url: https://github.com/datadesk/lausd-school-campus-polygons
+    tables:
+      campuses:
+        description: The areas of school campuses run by the Los Angeles Unified School District. Acquired in 2015.
